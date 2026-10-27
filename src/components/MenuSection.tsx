@@ -115,6 +115,7 @@ const MenuCategory = ({
         {items.map((item) => {
           const data = mi[item.nameKey];
           if (!data) return null;
+          const spice = item.spice ?? 0;
           return (
             <div key={item.nameKey} className="flex items-start gap-4">
               {item.image !== undefined && (
@@ -134,13 +135,17 @@ const MenuCategory = ({
                     <span className="font-display text-lg font-semibold text-foreground">
                       {t(data.name, lang)}
                     </span>
-                    {!!item.spice && (
+                    {spice > 0 && (
                       <span
-                        className="text-sm leading-none"
-                        title={`${t(spicyLabel, lang)} ${item.spice}/3`}
-                        aria-label={`${t(spicyLabel, lang)} ${item.spice}/3`}
+                        className="text-sm leading-none tracking-tight"
+                        title={`${t(spicyLabel, lang)} ${spice}/3`}
+                        aria-label={`${t(spicyLabel, lang)} ${spice}/3`}
                       >
-                        {"🌶️".repeat(item.spice)}
+                        {[0, 1, 2].map((i) => (
+                          <span key={i} className={i < spice ? "" : "opacity-25 grayscale"}>
+                            🌶️
+                          </span>
+                        ))}
                       </span>
                     )}
                     {item.tagKey && tags[item.tagKey] && (
