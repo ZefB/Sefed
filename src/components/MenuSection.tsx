@@ -15,22 +15,23 @@ interface MenuItem {
   price: string;
   tagKey?: string;
   image?: string;
+  spice?: number;
 }
 
 const entrees: MenuItem[] = [
-  { nameKey: "kitfoFourre", price: "9,90€", image: kitfoFourreImg },
+  { nameKey: "kitfoFourre", price: "9,90€", image: kitfoFourreImg, spice: 2 },
   { nameKey: "sambussaVegan", price: "5,50€", tagKey: "vegan", image: sambussaImg },
   { nameKey: "tomatoFitfit", price: "4,50€", tagKey: "vegan", image: tomatoFitfitImg },
 ];
 
 const viandes: MenuItem[] = [
-  { nameKey: "awazeTibsPoulet", price: "17€" },
-  { nameKey: "awazeTibsBoeuf", price: "18€" },
+  { nameKey: "awazeTibsPoulet", price: "17€", spice: 2 },
+  { nameKey: "awazeTibsBoeuf", price: "18€", spice: 2 },
   { nameKey: "doroTibs", price: "16€" },
   { nameKey: "doroWat", price: "19€" },
   
   { nameKey: "misserEtSega", price: "17€" },
-  { nameKey: "kitfo", price: "19€", image: kitfoSpecialImg },
+  { nameKey: "kitfo", price: "19€", image: kitfoSpecialImg, spice: 2 },
 ];
 
 const formules: MenuItem[] = [
@@ -97,6 +98,7 @@ const MenuCategory = ({
 }) => {
   const mi = translations.menuItems as Record<string, { name: { fr: string; en: string }; desc: { fr: string; en: string } }>;
   const tags = translations.menu.tags as Record<string, { fr: string; en: string }>;
+  const spicyLabel = translations.menu.spicy;
 
   return (
     <motion.div
@@ -132,6 +134,15 @@ const MenuCategory = ({
                     <span className="font-display text-lg font-semibold text-foreground">
                       {t(data.name, lang)}
                     </span>
+                    {!!item.spice && (
+                      <span
+                        className="text-sm leading-none"
+                        title={`${t(spicyLabel, lang)} ${item.spice}/3`}
+                        aria-label={`${t(spicyLabel, lang)} ${item.spice}/3`}
+                      >
+                        {"🌶️".repeat(item.spice)}
+                      </span>
+                    )}
                     {item.tagKey && tags[item.tagKey] && (
                       <span className={`text-[10px] uppercase tracking-wider font-body font-semibold px-2 py-0.5 rounded-full flex items-center gap-1 ${
                         item.tagKey === 'vegan' ? 'bg-green-100 text-green-500' : 'bg-accent/10 text-accent'
