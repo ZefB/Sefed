@@ -15,22 +15,23 @@ interface MenuItem {
   price: string;
   tagKey?: string;
   image?: string;
+  spice?: number;
 }
 
 const entrees: MenuItem[] = [
-  { nameKey: "kitfoFourre", price: "9,90€", image: kitfoFourreImg },
+  { nameKey: "kitfoFourre", price: "9,90€", image: kitfoFourreImg, spice: 2 },
   { nameKey: "sambussaVegan", price: "5,50€", tagKey: "vegan", image: sambussaImg },
   { nameKey: "tomatoFitfit", price: "4,50€", tagKey: "vegan", image: tomatoFitfitImg },
 ];
 
 const viandes: MenuItem[] = [
-  { nameKey: "awazeTibsPoulet", price: "17€" },
-  { nameKey: "awazeTibsBoeuf", price: "18€" },
+  { nameKey: "awazeTibsPoulet", price: "17€", spice: 2 },
+  { nameKey: "awazeTibsBoeuf", price: "18€", spice: 2 },
   { nameKey: "doroTibs", price: "16€" },
   { nameKey: "doroWat", price: "19€" },
   
   { nameKey: "misserEtSega", price: "17€" },
-  { nameKey: "kitfo", price: "19€", image: kitfoSpecialImg },
+  { nameKey: "kitfo", price: "19€", image: kitfoSpecialImg, spice: 2 },
 ];
 
 const formules: MenuItem[] = [

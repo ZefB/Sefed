@@ -122,6 +122,7 @@ export const translations = {
     footer1: { fr: "Viandes d'origine française", en: "French-origin meats", am: "የፈረንሳይ መነሻ ስጋዎች" },
     footer2: { fr: "Prix net — service compris", en: "Net prices — service included", am: "የተጣራ ዋጋ — አገልግሎት ተካቷል" },
     footer3: { fr: "Nous n'acceptons pas les chèques", en: "We do not accept cheques", am: "ቼክ አንቀበልም" },
+    spicy: { fr: "Épicé", en: "Spicy", am: "ቅመማማ" },
     tags: {
       vegan: { fr: "Vegan", en: "Vegan", am: "ቪጋን" },
       soirUniquement: { fr: "Uniquement le soir", en: "Evening only", am: "ምሽት ብቻ" },
