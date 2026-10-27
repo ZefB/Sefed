@@ -30,7 +30,7 @@ const viandes: MenuItem[] = [
   { nameKey: "doroTibs", price: "16€" },
   { nameKey: "doroWat", price: "19€" },
   
-  { nameKey: "misserEtSega", price: "17€" },
+  { nameKey: "misserEtSega", price: "17€", spice: 1 },
   { nameKey: "kitfo", price: "19€", image: kitfoSpecialImg, spice: 2 },
 ];
 
@@ -39,8 +39,8 @@ const formules: MenuItem[] = [
 ];
 
 const vegetariens: MenuItem[] = [
-  { nameKey: "shiro", price: "12€", tagKey: "vegan", image: shiroImg },
-  { nameKey: "misser", price: "14€", tagKey: "vegan" },
+  { nameKey: "shiro", price: "12€", tagKey: "vegan", image: shiroImg, spice: 1 },
+  { nameKey: "misser", price: "14€", tagKey: "vegan", spice: 1 },
   { nameKey: "kikeAlecha", price: "12€", tagKey: "vegan" },
   { nameKey: "vegeLover", price: "18€ / 32€", tagKey: "pour1ou2" },
 ];
