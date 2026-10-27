@@ -98,6 +98,7 @@ const MenuCategory = ({
 }) => {
   const mi = translations.menuItems as Record<string, { name: { fr: string; en: string }; desc: { fr: string; en: string } }>;
   const tags = translations.menu.tags as Record<string, { fr: string; en: string }>;
+  const spicyLabel = translations.menu.spicy;
 
   return (
     <motion.div
@@ -133,6 +134,15 @@ const MenuCategory = ({
                     <span className="font-display text-lg font-semibold text-foreground">
                       {t(data.name, lang)}
                     </span>
+                    {!!item.spice && (
+                      <span
+                        className="text-sm leading-none"
+                        title={`${t(spicyLabel, lang)} ${item.spice}/3`}
+                        aria-label={`${t(spicyLabel, lang)} ${item.spice}/3`}
+                      >
+                        {"🌶️".repeat(item.spice)}
+                      </span>
+                    )}
                     {item.tagKey && tags[item.tagKey] && (
                       <span className={`text-[10px] uppercase tracking-wider font-body font-semibold px-2 py-0.5 rounded-full flex items-center gap-1 ${
                         item.tagKey === 'vegan' ? 'bg-green-100 text-green-500' : 'bg-accent/10 text-accent'
