@@ -141,8 +141,8 @@ const MenuCategory = ({
                         title={`${t(spicyLabel, lang)} ${spice}/3`}
                         aria-label={`${t(spicyLabel, lang)} ${spice}/3`}
                       >
-                        {[0, 1, 2].map((i) => (
-                          <span key={i} className={i < spice ? "" : "opacity-25 grayscale"}>
+                        {Array.from({ length: spice }).map((_, i) => (
+                          <span key={i}>
                             🌶️
                           </span>
                         ))}
